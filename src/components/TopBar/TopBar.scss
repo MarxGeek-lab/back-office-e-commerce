@@ -1,0 +1,88 @@
+@import "../../global/variables.scss";
+
+.TopBar {
+    position: relative;
+    &-top {
+        height: 70px;
+        background-color: white;
+        position: relative;
+    }
+    &-logoParty {
+        display: flex;
+        align-items: center;
+        padding-left: 30px;
+    }
+
+    &-logo {
+        &>span {
+            font-size: 18px;
+            color: $black;
+        }
+
+        &>b {
+            font-size: 30px;
+            color: $red;
+        }
+    }
+
+    &-right {
+        height: 90%;
+        padding-right: 140px;
+
+        &>button {
+            margin-bottom: 3px;
+            font-size: 14px;
+        }
+    }
+
+    &-nameProfil {
+        color: $black;
+        font-size: 15px;
+        margin-left: 80px;
+    }
+
+    &-goToSite {
+        color: $red;
+        background: none;
+        margin-right: 20px;
+        padding: 0 20px;
+        border-right: 1px solid $red;
+        border-left: 1px solid $red;
+    }
+
+    &-breadCrumb {
+        padding: 9px 10px;
+        background-color: $red;
+        position: relative;
+    }
+
+    &-btnDisconnect {
+        padding: 7px 12px;
+        background: none;
+        color: white;
+        font-size: 14px;
+        margin-right: 50px;
+
+        &>svg {
+            margin-left: 10px;
+        }
+    }
+
+    &-avatar {
+        height: 110px;
+        width: 110px;
+        position: absolute;
+        right: -1px;
+        top: 42%;
+        border-radius: 50%;
+        border: 3px solid $red;
+        z-index: 1;
+    }
+
+    &-disconnectBlock {
+        position: absolute;
+        right: 4%;
+        background-color: $red-700;
+        padding-left: 15px;
+    }
+}
