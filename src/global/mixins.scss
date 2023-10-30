@@ -1,0 +1,38 @@
+// Définition des formats d'écran
+$mobile-portrait: 576px;
+$mobile-landscape: 768px;
+$tablet-portrait: 1024px;
+$tablet-landscape: 1200px;
+$desktop: 1900px;
+
+// Mixin pour les médias queries
+
+@mixin mobile-portrait {
+  @media (max-width: #{$mobile-portrait}) {
+    @content;
+  }
+}
+
+@mixin mobile-landscape {
+  @media (max-width: #{$mobile-landscape}) {
+    @content;
+  }
+}
+
+@mixin tablet-portrait {
+  @media (max-width: #{$tablet-portrait}) {
+    @content;
+  }
+}
+
+@mixin tablet-landscape {
+  @media (max-width: #{$tablet-landscape}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (max-width: #{$desktop}) {
+    @content;
+  }
+}

@@ -1,0 +1,58 @@
+@import "../../global/variables.scss";
+
+.Home {
+    padding: 20px;
+    
+    &-cardGroup {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        column-gap: 30px;
+    }
+
+    &-stats {
+        width: 100%;
+        background-color: white;
+        border-radius: 15px;
+        margin-top: 30px;
+        box-shadow: 0 0 35px $black-shadow;
+        padding: 20px;
+    }
+}
+
+.Card {
+    height: 130px;
+    border-radius: 15px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 30px;
+    box-shadow: 0 0 25px $black-shadow;
+
+    &-infos {
+        position: relative;
+        width: 80%;
+
+        &::before {
+            content: "";
+            height: 1px;
+            width: 83%;
+            position: absolute;
+            bottom: 0;
+            background-color: $red;
+            right: 0;
+        }
+
+        &>span {
+            margin-left: 10px;
+        }
+    }
+
+    &-nb {
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        border: 1px solid $red;
+        color: $red;
+        font-size: 30px;
+    }
+}
