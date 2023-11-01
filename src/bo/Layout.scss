@@ -3,6 +3,7 @@
 .Layout {
     overflow-y: scroll;
     border: 1px solid;
+
     &-mainCenter {
         background-color: $red-transparent;
         height: calc(100vh - 100px);
@@ -19,7 +20,7 @@
         padding: 14px 0px;
         width: 100% !important;
     }
-    
+
     .p-menuitem {
         display: flex;
         width: 180px !important;
@@ -45,7 +46,7 @@
                     position: absolute;
                 }
             }
-            
+
 
             &>svg {
                 position: absolute;

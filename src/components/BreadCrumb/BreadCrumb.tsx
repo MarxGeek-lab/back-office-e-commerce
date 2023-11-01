@@ -10,7 +10,7 @@ interface BreadCrumbProps {
 export const BreadCrumb:React.FC<BreadCrumbProps> = ({ labelPage }) => {
     return (
         <div className="BreadCrumb">
-            <a className="Dflex Dflex-alignCenter"><FiHome /></a>
+            <a className="Dflex Dflex-alignCenter" ><FiHome /></a>
             <FiChevronRight className="BreadCrumb-chevron" />
             <a className="Dflex Dflex-alignCenter">{labelPage}</a>
         </div>
