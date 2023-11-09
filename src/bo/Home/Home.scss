@@ -2,7 +2,7 @@
 
 .Home {
     padding: 20px;
-    
+
     &-cardGroup {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
@@ -42,8 +42,10 @@
             right: 0;
         }
 
-        &>span {
+        &>p {
             margin-left: 10px;
+            color: red !important;
+            font-size: 1px;
         }
     }
 

@@ -1,0 +1,14 @@
+@import "../../global/variables.scss";
+
+.Button {
+    background: $red-transparent;
+    color: $red;
+    font-size: 14px;
+    border: 1px solid $red;
+    height: 35px;
+
+    &>svg {
+        margin-right: 6px;
+        font-size: 18px;
+    }
+}

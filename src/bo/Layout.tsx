@@ -6,6 +6,7 @@ import "./Layout.scss";
 import { TieredMenu } from "primereact/tieredmenu";
 import { useNavigate } from "react-router-dom";
 import {
+  CATEGORY_LIST_PAGE,
   CATEGORY_PAGE,
   HOME_PAGE,
   ORDER_PAGE,
@@ -37,7 +38,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           label: "Tout les catégories",
           icon: "pi pi-fw pi-list",
           command: () => {
-            navigate(CATEGORY_PAGE);
+            navigate(CATEGORY_LIST_PAGE);
           },
         },
         {
@@ -141,10 +142,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         <TieredMenu
           model={items}
           breakpoint="767px"
-          className="Layout-sidebar p-tieredmenu p-menu-list p-menuitem p-menuitem-text p-menuitem-icon"
+          className="Layout-sidebar p-tieredmenu p-menu-list p-menuitem p-menuitem-icon"
         />
         <div className="Layout-contentPage">
-          <div className="Layout-blockContent">
+          <div className="Layout-blockContent p-2">
             <Suspense fallback="...">{children}</Suspense>
           </div>
         </div>
