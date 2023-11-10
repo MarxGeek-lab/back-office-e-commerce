@@ -6,6 +6,7 @@ import { InputText } from "primereact/inputtext";
 import { FiDelete, FiEdit, FiPlus, FiSearch } from "react-icons/fi";
 import { FaFileDownload } from "react-icons/fa";
 import { Button } from "../../../components/Button/Button";
+import { Checkbox } from "../../../components/CheckBox/CheckBox";
 
 const CategoryList: React.FC = () => {
   return (
@@ -40,7 +41,7 @@ const CategoryList: React.FC = () => {
             </thead>
             <tbody>
               <tr>
-                <input type="checkbox" />
+                <Checkbox />
               </tr>
             </tbody>
           </table>

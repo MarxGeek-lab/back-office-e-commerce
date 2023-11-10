@@ -1,11 +1,18 @@
 import React from "react";
 
-import "./Checkbox.scss";
+import "./CheckBox.scss";
 
 export const Checkbox: React.FC = () => {
   return (
-    <div>
-      <input type="text" />
-    </div>
+    <>
+      <label className="checkbox-wrapper">
+        <input type="checkbox" />
+        <label className="checkbox-mark" />
+      </label>
+      <div className="CheckBox">
+        <input type="checkbox" />
+        <label className="CheckBox-mark" />
+      </div>
+    </>
   );
 };
