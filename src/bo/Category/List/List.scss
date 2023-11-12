@@ -2,31 +2,5 @@
 
 .CategoryListPage {
     color: $black;
-}
-
-.FormSearch {
-    position: relative;
-    background-color: $red-transparent;
-    border-radius: 30px;
-
-    &>input {
-        border-radius: 10px;
-        border: none;
-        background: none;
-        height: 38px;
-        outline: none;
-
-        &:focus {
-            border: 1px solid $red;
-        }
-    }
-
-    &>svg {
-        font-size: 18px;
-        color: $red;
-        position: absolute;
-        left: 8%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-    }
+    height: 100%;
 }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./bo/Layout";
 import {
   CATEGORY_LIST_PAGE,
-  CATEGORY_PAGE,
+  CATEGORY_TRASH_PAGE,
   HOME_PAGE,
   ORDER_PAGE,
   PRODUCT_PAGE,
@@ -14,6 +14,7 @@ import {
 const HomePage = lazy(() => import("./bo/Home/Home"));
 const ProductPage = lazy(() => import("./bo/Product"));
 const ListCategoryPage = lazy(() => import("./bo/Category/List/List"));
+const ListTrashCategory = lazy(() => import("./bo/Category/Trash/Trash"));
 const OrderPage = lazy(() => import("./bo/Order"));
 const SalePage = lazy(() => import("./bo/Sale"));
 const SettingPage = lazy(() => import("./bo/Setting"));
@@ -49,6 +50,17 @@ const AppRouter: React.FC = () => (
           <Suspense fallback={"..."}>
             <Layout>
               <ListCategoryPage />
+            </Layout>
+          </Suspense>
+        }
+      />
+
+      <Route
+        path={CATEGORY_TRASH_PAGE}
+        element={
+          <Suspense fallback={"..."}>
+            <Layout>
+              <ListTrashCategory />
             </Layout>
           </Suspense>
         }

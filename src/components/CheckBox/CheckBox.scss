@@ -6,17 +6,17 @@
     position: relative;
     cursor: pointer;
 
-    &-label {
+    &-mark {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 20px;
-        width: 20px;
+        height: 17px;
+        width: 17px;
 
-        &::before {
+        &:before {
             content: "";
-            border-left: 1px solid red;
-            border-bottom: 2px solid red;
+            border-left: 1px solid $red;
+            border-bottom: 3px solid $red;
             position: absolute;
             height: 25%;
             width: 60%;
@@ -25,82 +25,20 @@
             transform: translate(-50%, -50%) rotate(-50deg);
             display: none;
         }
-
-        >input[type="checkbox"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            opacity: 1;
-
-            &:checked {
-                border: 3px solid #db6151;
-            }
-        }
-
-        >input[type="checkbox"]:checked~&::before {
-            display: block;
-        }
     }
-}
 
-.checkbox-wrapper {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 19px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    border: solid 1px #7b4242;
-    height: 20px;
-    width: 20px;
-}
+    >input {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 100%;
+        opacity: 0;
+        z-index: 1;
+        cursor: pointer;
+    }
 
-/* Hide the browser's default checkbox */
-.checkbox-wrapper input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
-
-/* Create a custom checkbox */
-.checkbox-mark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 20px;
-    width: 20px;
-}
-
-/* When the checkbox is checked, add a blue background */
-.checkbox-wrapper input:checked~.checkbox-mark {
-    background-color: #51a8db;
-}
-
-/* Create the checkbox-mark/indicator (hidden when not checked) */
-.checkbox-mark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
-
-/* Show the checkbox-mark when checked */
-.checkbox-wrapper input:checked~.checkbox-mark:after {
-    display: block;
-}
-
-/* Style the checkbox-mark/indicator */
-.checkbox-wrapper .checkbox-mark:after {
-    left: 7px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid 1px white;
-    border-width: 0 3px 3px 0;
-    transform: rotate(45deg);
+    &>input:checked~&-mark:before {
+        display: block;
+    }
 }

@@ -2,15 +2,14 @@ import React from "react";
 
 import "./CheckBox.scss";
 
-export const Checkbox: React.FC = () => {
+interface CheckBoxProps {
+  action?: () => void;
+}
+export const Checkbox: React.FC<CheckBoxProps> = ({ action }) => {
   return (
     <>
-      <label className="checkbox-wrapper">
-        <input type="checkbox" />
-        <label className="checkbox-mark" />
-      </label>
       <div className="CheckBox">
-        <input type="checkbox" />
+        <input type="checkbox" onClick={action} />
         <label className="CheckBox-mark" />
       </div>
     </>

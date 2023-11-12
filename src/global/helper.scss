@@ -1,50 +1,50 @@
 @import "./mixins.scss";
 
 .Container {
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    column-gap: 30px;
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  column-gap: 30px;
 }
 
 .Container,
 .RawContainer {
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1366px;
-    height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  height: 100%;
 
-    @include mobile-landscape {
-        max-width: 90%;
-    }
+  // @include mobile-landscape {
+  //   max-width: 90%;
+  // }
 }
 
 .MBottomTop-6 {
-    margin-bottom: 6rem;
-    margin-top: 6rem;
+  margin-bottom: 6rem;
+  margin-top: 6rem;
 }
 
 .Dflex {
-    display: flex;
+  display: flex;
 
-    &-alignCenter {
-        align-items: center;
-    }
+  &-alignCenter {
+    align-items: center;
+  }
 
-    &-col {
-        flex-direction: column;
-    }
+  &-col {
+    flex-direction: column;
+  }
 
-    &-alignEnd {
-        align-items: end;
-    }
+  &-alignEnd {
+    align-items: end;
+  }
 
-    &-justifyCCenter {
-      justify-content: center;
-    }
+  &-justifyCCenter {
+    justify-content: center;
+  }
 
-    &-justifyCSpaceBetween {
-      justify-content: space-between;
-    }
+  &-justifyCSpaceBetween {
+    justify-content: space-between;
+  }
 }
 
 .EllipsisLine2,

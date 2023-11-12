@@ -8,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import {
   CATEGORY_LIST_PAGE,
   CATEGORY_PAGE,
+  CATEGORY_TRASH_PAGE,
   HOME_PAGE,
   ORDER_PAGE,
   PRODUCT_PAGE,
@@ -52,7 +53,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           label: "Cobeille",
           icon: "pi pi-fw pi-trash",
           command: () => {
-            navigate(CATEGORY_PAGE);
+            navigate(CATEGORY_TRASH_PAGE);
           },
         },
       ],

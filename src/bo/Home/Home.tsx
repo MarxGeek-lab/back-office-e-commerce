@@ -3,9 +3,6 @@ import { Chart } from "primereact/chart";
 
 import "./Home.scss";
 
-import { DataTable } from "primereact/datatable";
-import { Column } from "primereact/column";
-
 interface Customer {
   id: number;
   name: string;
