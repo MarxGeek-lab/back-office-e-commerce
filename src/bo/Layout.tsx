@@ -6,6 +6,7 @@ import "./Layout.scss";
 import { TieredMenu } from "primereact/tieredmenu";
 import { useNavigate } from "react-router-dom";
 import {
+  ADD_PRODUCT_PAGE,
   CATEGORY_LIST_PAGE,
   CATEGORY_PAGE,
   CATEGORY_TRASH_PAGE,
@@ -73,7 +74,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           label: "Nouveau produits",
           icon: "pi pi-fw pi-plus",
           command: () => {
-            navigate(PRODUCT_PAGE);
+            navigate(ADD_PRODUCT_PAGE);
           },
         },
         {

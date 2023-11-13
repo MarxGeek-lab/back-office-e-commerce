@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "react-multi-carousel/lib/styles.css";
 import "./List.scss";
@@ -15,8 +15,11 @@ import img3 from "../../../assets/images/download (12).jpeg";
 import img4 from "../../../assets/images/download (13).jpeg";
 
 import { FormSeach } from "../../../components/FormSeach/FormSearch";
+import { Dialog } from "primereact/dialog";
+import { InputText } from "primereact/inputtext";
 
 const CategoryList: React.FC = () => {
+  const [visible, setVisible] = useState(false);
   const selectLine = () => {
     const allLines: NodeListOf<Element> = document.querySelectorAll(".DataTable-bodyLine");
 
@@ -111,6 +114,22 @@ const CategoryList: React.FC = () => {
 
   return (
     <CardContent>
+      <Dialog
+        className="p-4 bg-white DialogPopup"
+        header="Header"
+        visible={false}
+        style={{ width: "50vw" }}
+        onHide={() => setVisible(true)}
+      >
+        <form className="w-20rem">
+          <label className="flex flex-column">
+            <label htmlFor="username">Username</label>
+            <InputText id="username" />
+            <span>ojo</span>
+          </label>
+        </form>
+      </Dialog>
+
       <div className="CategoryListPage">
         <div className="CategoryListPage-searchDiv mt-1 flex justify-content-between">
           <div className="CategoryListPage-actionDiv flex gap-3">

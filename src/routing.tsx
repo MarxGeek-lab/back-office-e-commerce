@@ -2,6 +2,7 @@ import React, { Suspense, lazy } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Layout from "./bo/Layout";
 import {
+  ADD_PRODUCT_PAGE,
   CATEGORY_LIST_PAGE,
   CATEGORY_TRASH_PAGE,
   HOME_PAGE,
@@ -13,6 +14,7 @@ import {
 
 const HomePage = lazy(() => import("./bo/Home/Home"));
 const ProductPage = lazy(() => import("./bo/Product"));
+const AddProductPage = lazy(() => import("./bo/Product/addItem/AddProduct"));
 const ListCategoryPage = lazy(() => import("./bo/Category/List/List"));
 const ListTrashCategory = lazy(() => import("./bo/Category/Trash/Trash"));
 const OrderPage = lazy(() => import("./bo/Order"));
@@ -39,6 +41,17 @@ const AppRouter: React.FC = () => (
           <Suspense fallback={"..."}>
             <Layout>
               <ProductPage />
+            </Layout>
+          </Suspense>
+        }
+      />
+
+      <Route
+        path={ADD_PRODUCT_PAGE}
+        element={
+          <Suspense fallback={"..."}>
+            <Layout>
+              <AddProductPage />
             </Layout>
           </Suspense>
         }
