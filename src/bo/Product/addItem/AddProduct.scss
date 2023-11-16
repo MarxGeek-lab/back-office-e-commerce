@@ -21,7 +21,7 @@
         color: $red;
     }
 
-    >input {
+    &>input {
         height: 40px;
     }
 
@@ -29,10 +29,71 @@
         color: $black;
         font-size: 15px;
         margin-bottom: 6px;
+
+        &>i {
+            color: $red;
+        }
     }
 
     &-otherDetail {
         margin-top: 30px !important;
+    }
+
+    &-tagSize {
+        box-shadow: 0 0 2px rgb(173, 173, 173);
+        width: 42px;
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $black;
+        font-size: 14px;
+        font-weight: bold;
+        padding: 3px 0;
+        cursor: pointer;
+        position: relative;
+
+        &:hover {
+            background-color: $red-transparent;
+            color: $red;
+        }
+    }
+
+    &-selectSize {
+        background-color: $red-transparent;
+
+        &::before {
+            content: "";
+            height: 10px;
+            width: 10px;
+            border-radius: 50%;
+            background-color: $red;
+            position: absolute;
+            top: -3px;
+            left: -3px;
+        }
+    }
+
+    &-color {
+        height: 25px;
+        width: 25px;
+        border-radius: 50%;
+        position: relative;
+        cursor: pointer;
+    }
+
+    &-selectColor {
+        &::before {
+            content: "";
+            height: 30%;
+            width: 45%;
+            border-left: 1px solid white;
+            border-bottom: 1px solid white;
+            position: absolute;
+            left: 50%;
+            top: 40%;
+            transform: translate(-50%, -50%) rotate(-50deg);
+        }
     }
 }
 
@@ -44,4 +105,134 @@
 
 .p-inputtext:focus {
     border-color: red;
+}
+
+.Card {
+    border: 1px solid $whitesmoke;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &-title {
+        border-bottom: 1px solid $whitesmoke;
+        padding: 10px;
+        background-color: $whitesmoke-light;
+    }
+
+    &-body {
+        padding: 15px;
+    }
+}
+
+.SelectFileImage {
+    width: 100%;
+    border: 1px solid $whitesmoke;
+    border-radius: 6px;
+    overflow: hidden;
+
+    &-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 6px 10px 6px 10px;
+        background-color: $whitesmoke-light;
+        border-bottom: 1px solid $whitesmoke;
+    }
+
+    &-groupBtn {
+        display: flex;
+        gap: 10px;
+        margin-right: 30px;
+
+        &>button {
+            padding: 8px;
+            font-size: 14px;
+            color: white;
+            border: 1px solid $whitesmoke-light;
+            background-color: $red-700;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            white-space: nowrap;
+
+            &>svg {
+                font-size: 18px;
+                margin-right: 5px;
+            }
+        }
+    }
+
+    &-infos {
+        font-size: 13px;
+        color: $black;
+    }
+
+    &-contentImage {
+        max-height: 200px;
+        width: 100%;
+        padding: 10px;
+        overflow-y: scroll;
+    }
+
+    &-btnAddImage {
+        position: relative;
+
+        &>input {
+            position: absolute;
+            opacity: 0;
+            height: 100%;
+            width: 100%;
+            top: 0;
+            left: 0;
+            cursor: pointer;
+        }
+    }
+
+    &-footer {
+        padding: 8px;
+        background-color: $whitesmoke-light;
+        border-top: 1px solid $whitesmoke;
+    }
+
+    &-placeholder {
+        margin: 20px auto;
+        width: max-content;
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+
+        &>svg {
+            color: $whitesmoke;
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        &>span {
+            font-size: 14px;
+            color: $black;
+        }
+    }
+
+    &-imgDiv {
+        margin: 15px 0;
+        position: relative;
+        background-color: rgb(245, 245, 245);
+        border-radius: 4px;
+        padding: 10px;
+
+        &>img {
+            width: 120px;
+            height: 120px;
+        }
+    }
+
+    &-deleteImage {
+        font-size: 35px;
+        color: $red;
+        position: absolute;
+        top: 0;
+        right: 3px;
+        cursor: pointer;
+    }
 }

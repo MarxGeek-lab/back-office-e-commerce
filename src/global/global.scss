@@ -2,7 +2,7 @@
 
 @font-face {
     font-family: 'Poppins';
-    src: url('../assets/fonts/Poppins-Light.ttf') format('truetype');
+    src: url('../assets/fonts/Poppins-Regular.ttf') format('truetype');
 }
 
 *,
@@ -10,6 +10,7 @@
 ::before {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
