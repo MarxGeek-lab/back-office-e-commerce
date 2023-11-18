@@ -1,19 +1,62 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import "./AddProduct.scss";
 import { CardContent } from "../../../components/CardContent/CardContent";
 import { InputText } from "primereact/inputtext";
 import { Editor } from "primereact/editor";
-import { FiChevronDown, FiEdit } from "react-icons/fi";
+import { FiChevronDown, FiChevronRight, FiEdit, FiSearch } from "react-icons/fi";
 import { ImageUpload } from "../../../components/ImageUpload/ImageUpload";
-import { FaSistrix } from "react-icons/fa";
 
-const AddProduct: React.FC = () => {
+interface Category {
+  id: number;
+  name: string;
+  subcategories: { id: number; name: string }[];
+}
+
+interface SearchCategoriesProps {
+  categories?: Category[];
+}
+
+const AddProduct: React.FC<SearchCategoriesProps> = ({ categories }) => {
   const [colorSelected, setColorSelected] = useState<string[]>([]);
   const [sizeSelected, setSizeSelected] = useState<string[]>([]);
   const [selectedImages, setSelectedImage] = useState<File[]>([]);
+  const [searchResults, setSearchResults] = useState<Category[]>([]);
+  const [category, setCategory] = useState<string>("");
+  const [subCategory, setSubCategory] = useState<string>("");
+  const [searchValue, setSearchValue] = useState<string>("");
   const sizes = ["SM", "M", "L", "XL", "2XL", "3XL"];
   const colors = ["black", "red", "yellow", "purple", "green", "blue"];
+
+  const categorys = [
+    {
+      id: 1,
+      name: "Electroniques",
+      subcategories: [
+        { id: 101, name: "Téléphones" },
+        { id: 102, name: "Ordinateurs" },
+        { id: 103, name: "Appareils photo" },
+      ],
+    },
+    {
+      id: 2,
+      name: "Vêtements",
+      subcategories: [
+        { id: 201, name: "Hommes" },
+        { id: 202, name: "Femmes" },
+        { id: 203, name: "Enfants" },
+      ],
+    },
+    {
+      id: 3,
+      name: "Alimentation",
+      subcategories: [
+        { id: 301, name: "Fruits et légumes" },
+        { id: 302, name: "Viande et poisson" },
+        { id: 303, name: "Produits laitiers" },
+      ],
+    },
+  ];
 
   const selectColor = (color: string) => {
     if (colorSelected.includes(color)) {
@@ -31,6 +74,28 @@ const AddProduct: React.FC = () => {
     }
   };
 
+  const selectCategory = (item: string, subItem?: string) => {
+    if (item) {
+      setCategory(item);
+    }
+    if (subItem) {
+      setSubCategory(subItem);
+    }
+  };
+
+  const searchCategory = () => {
+    if (searchValue && categories) {
+      const result = categories.filter((category) =>
+        category.name.toLowerCase().includes(searchValue.toLowerCase()),
+      );
+      console.log(result);
+      setSearchResults(result);
+    }
+  };
+
+  useEffect(() => {
+    searchCategory();
+  }, [searchValue]);
   return (
     <CardContent>
       <div className="AddItem">
@@ -40,23 +105,107 @@ const AddProduct: React.FC = () => {
           </h2>
           <div className="SelectField">
             <div className="SelectField-itemSelected">
-              <input className="SelectField-itemSelected" type="text" placeholder="Selectionner " />
+              <input
+                className="SelectField-itemSelected"
+                value={category ? category : ""}
+                type="text"
+                placeholder="Selectionner "
+              />
               <FiChevronDown />
             </div>
             <div className="SelectField-selectBoxItem">
-              <form>
-                <input type="text" placeholder="" />
-                <FaSistrix />
+              <form className="SelectField-form">
+                <input
+                  type="text"
+                  placeholder="Rechecher votre catégories ici"
+                  value={searchValue}
+                  onChange={(e) => setSearchValue(e.target.value)}
+                />
+                <FiSearch />
               </form>
               <ul className="SelectField-listItem">
-                <li className="SelectField-Item">
-                  Item 1
-                  <ul className="SelectField-listSubItem">
-                    <li className="SelectField-subItem">sub Item</li>
-                    <li>sub Item</li>
-                    <li>sub Item</li>
-                  </ul>
-                </li>
+                {searchResults.length > 0
+                  ? searchResults.map((list, index) => (
+                      <li className="SelectField-Item" key={index.toString()}>
+                        <p
+                          className="SelectField-itemValue"
+                          onClick={() => selectCategory(list.name)}
+                          onKeyUp={() => selectCategory(list.name)}
+                        >
+                          <span>{list.name}</span> <FiChevronRight />{" "}
+                        </p>
+                        {list.subcategories.length > 0 ? (
+                          <ul className="SelectField-listSubItem">
+                            {list.subcategories.map((sub, subIndex) => (
+                              <li
+                                className="SelectField-subItem"
+                                onClick={() => selectCategory(list.name, sub.name)}
+                                onKeyUp={() => selectCategory(list.name, sub.name)}
+                                key={subIndex.toString()}
+                              >
+                                {sub.name}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          ""
+                        )}
+                      </li>
+                    ))
+                  : categorys.map((list, index) => (
+                      <li className="SelectField-Item" key={index.toString()}>
+                        <p
+                          className="SelectField-itemValue"
+                          onClick={() => selectCategory(list.name)}
+                          onKeyUp={() => selectCategory(list.name)}
+                        >
+                          <span>{list.name}</span> <FiChevronRight />{" "}
+                        </p>
+                        {list.subcategories.length > 0 ? (
+                          <ul className="SelectField-listSubItem">
+                            {list.subcategories.map((sub, subIndex) => (
+                              <li
+                                className="SelectField-subItem"
+                                onClick={() => selectCategory(list.name, sub.name)}
+                                onKeyUp={() => selectCategory(list.name, sub.name)}
+                                key={subIndex.toString()}
+                              >
+                                {sub.name}
+                              </li>
+                            ))}
+                          </ul>
+                        ) : (
+                          ""
+                        )}
+                      </li>
+                    ))}
+                {/* {categorys.map((list, index) => (
+                  <li className="SelectField-Item" key={index.toString()}>
+                    <p
+                      className="SelectField-itemValue"
+                      onClick={() => selectCategory(list.name)}
+                      onKeyUp={() => selectCategory(list.name)}
+                    >
+                      <span>{list.name}</span> <FiChevronRight />{" "}
+                    </p>
+                    {list.subcategories.length > 0 ? (
+                      <ul className="SelectField-listSubItem">
+                        {list.subcategories.map((sub, subIndex) => (
+                          <li
+                            className="SelectField-subItem"
+                            onClick={() => selectCategory(list.name, sub.name)}
+                            onKeyUp={() => selectCategory(list.name, sub.name)}
+                            key={subIndex.toString()}
+                          >
+                            {sub.name}
+                          </li>
+                        ))}
+                      </ul>
+                    ) : (
+                      ""
+                    )}
+                  </li>
+                ))} */}
               </ul>
             </div>
           </div>

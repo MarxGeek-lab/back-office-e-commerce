@@ -236,3 +236,131 @@
         cursor: pointer;
     }
 }
+
+.SelectField {
+    width: 100%;
+    border-radius: 6px;
+
+    &-itemSelected {
+        height: 40px;
+        border-radius: 6px;
+        position: relative;
+
+        &>input {
+            border: 1px solid $whitesmoke;
+            width: 100%;
+            padding: 0 10px;
+            color: $black;
+            outline: none;
+            font-size: 14px;
+            background-color: $whitesmoke-light;
+        }
+
+        &>svg {
+            position: absolute;
+            font-size: 20px;
+            color: $black;
+            right: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            cursor: pointer;
+        }
+    }
+
+    &-selectBoxItem {
+        border: 1px solid $whitesmoke;
+        border-radius: 6px;
+    }
+
+    &-form {
+        width: 98%;
+        margin: 10px auto;
+        position: relative;
+
+        &>input {
+            width: 100%;
+            border: 1px solid $whitesmoke;
+            border-radius: 30px;
+            height: 38px;
+            padding: 0 50px;
+            outline: none;
+            color: $black;
+        }
+
+        &>svg {
+            position: absolute;
+            color: $black;
+            top: 50%;
+            left: 4%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+    }
+
+    &-listItem {
+        width: 100%;
+    }
+
+    &-Item {
+        width: 100%;
+        position: relative;
+
+        &:nth-child(odd) {
+            background-color: $whitesmoke-light;
+        }
+
+        &:hover {
+            &>ul {
+                display: block;
+            }
+        }
+    }
+
+    &-itemValue {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: 35px;
+        cursor: pointer;
+
+        &>svg {
+            font-size: 18px;
+            color: $black;
+        }
+
+        &>span {
+            font-size: 14px;
+            color: $black;
+            margin-left: 10px;
+        }
+    }
+
+    &-listSubItem {
+        position: absolute;
+        right: 0;
+        background-color: white;
+        width: 40%;
+        border: 1px solid $whitesmoke;
+        z-index: 1;
+        display: none;
+        border-radius: 6px;
+        overflow: hidden;
+    }
+
+    &-subItem {
+        font-size: 14px;
+        color: $black;
+        padding: 8px 12px;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $whitesmoke;
+            text-decoration: underline;
+        }
+
+        &:nth-child(odd) {
+            background-color: $whitesmoke-light;
+        }
+    }
+}
